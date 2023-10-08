@@ -8,7 +8,7 @@ __version__ = "1.0"
 
 import sys, os
 import qrcode
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLineEdit, QLabel, QHBoxLayout, QVBoxLayout, QWidget, QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QLineEdit, QLabel, QVBoxLayout, QWidget, QFileDialog, QMessageBox
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtCore import Qt
 from io import BytesIO
@@ -81,7 +81,7 @@ class MainWindow(QMainWindow):
 
             self.qr_label.setPixmap(pixmap)
             
-            # Update current_qr_image
+            # Actualiza la variable current_qr_image
             self.current_qr_image = img
         else:
             # Si no hay texto, muestra una imagen vacía
@@ -99,10 +99,16 @@ class MainWindow(QMainWindow):
                 QMessageBox.warning(self, "Error", "No se seleccionó una ubicación de guardado.")
 
 
-if __name__ == '__main__':
+def main():
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon(os.path.join(basedir, "icons", "mikel.svg")))
     window = MainWindow()
     window.show()
     app.exec_()
+
+if __name__ == "__main__":
+    main()
+
+
+
 
